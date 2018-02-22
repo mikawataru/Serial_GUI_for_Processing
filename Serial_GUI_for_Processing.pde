@@ -4,7 +4,7 @@ Serial device;
 float   angleX;
 float   angleY;
 float   angleZ;
-String  PortName = "COM3";
+String  PortName = "COM7";
 int     Baurate  = 115200;
 
 void setup(){
@@ -22,7 +22,7 @@ void draw(){
   rotateX(radians(angleY));
   rotateY(radians(angleZ));
   rotateZ(radians(angleX));
-  box(250, 50, 250);
+  box(100, 100, 100);
 }
 
 void serialEvent(Serial p){
@@ -34,8 +34,8 @@ void serialEvent(Serial p){
       str = trim(str);
       println(str);
       String[] data = splitTokens(str,",");
-      angleX = float(data[1]);
-      angleY = float(data[2]);  
+      angleY = float(data[1]);
+      angleX = float(data[2]);  
       println(str);
     }
   }catch(RuntimeException e) {
